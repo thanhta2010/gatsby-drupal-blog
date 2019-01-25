@@ -1,4 +1,3 @@
 [build]
-  base = "labs/final"
   publish = "labs/final/public"
-  command = "yarn build"
+  command = "yarn workspaces run build"
