@@ -1,0 +1,4 @@
+[build]
+  base = "labs/final"
+  publish = "labs/final/public"
+  command = "yarn build"
