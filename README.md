@@ -15,8 +15,8 @@ Once validated, run `yarn` to install all necessary dependencies for _all_ the l
 Each folder within `labs` is a self-contained project (e.g. `lab01`, `lab02`, `final`, etc.) where you will make your changes. Before starting a new lab, be sure to `cd` to the appropriate directory!
 
 <!-- AUTO-GENERATED-CONTENT:START (ALL_LABS) -->
-  - [01-getting-started](./labs/01-getting-started)
-  - [final](./labs/final)
+- [Lab 01-getting-started](./labs/01-getting-started)
+- [Lab final](./labs/final)
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 [yarn-install]: https://yarnpkg.com/lang/en/docs/install/

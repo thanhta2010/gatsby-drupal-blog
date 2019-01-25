@@ -8,7 +8,7 @@ module.exports = {
       const base = path.resolve('labs')
       const labs = fs.readdirSync(base)
         .filter(fileOrDirectory => fs.statSync(path.join(base, fileOrDirectory)).isDirectory())
-      return labs.map(lab => `- [${lab}](./${path.join('labs', lab)})`).join('\n')
+      return labs.map(lab => `- [Lab ${lab}](./${path.join('labs', lab)})`).join('\n')
     },
     LAB(content, options, { originalPath }) {
       const relativePath = path.relative(path.resolve('labs'), originalPath)
