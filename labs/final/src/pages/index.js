@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Preview from '../components/preview'
@@ -11,6 +12,7 @@ function IndexPage({ data }) {
   return (
     <Layout>
       <SEO title="Home" keywords={[`blog`]} />
+      <Bio />
       <main className={styles.index}>
         <ul>
           {

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 
 import 'prismjs/themes/prism-okaidia.css'
 
+import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
@@ -12,8 +13,9 @@ export default function BlogPost({ data }) {
     <Layout>
       <SEO title={post.title} description={post.fields.markdownBody.childMarkdownRemark.excerpt} />
       <div dangerouslySetInnerHTML={{ __html: post.fields.markdownBody.childMarkdownRemark.html }} />
+      <Bio />
     </Layout>
-  )
+  ) 
 }
 
 export const blogPostQuery = graphql`
