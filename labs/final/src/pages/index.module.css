@@ -1,0 +1,8 @@
+.index ul {
+  padding: 0;
+  margin: 0;
+}
+
+.index li {
+  list-style-type: none;
+}

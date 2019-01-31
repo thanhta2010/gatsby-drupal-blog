@@ -5,19 +5,23 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Preview from '../components/preview'
 
+import styles from './index.module.css'
+
 function IndexPage({ data }) {
   return (
     <Layout>
       <SEO title="Home" keywords={[`blog`]} />
-      <ul>
-        {
-          data.posts.edges.map(({ node }) => (
-            <li key={node.fields.slug}>
-              <Preview slug={node.fields.slug} date={node.date} excerpt={node.fields.markdownBody.childMarkdownRemark.excerpt} title={node.title} />
-            </li>
-          ))
-        }
-      </ul>
+      <main className={styles.index}>
+        <ul>
+          {
+            data.posts.edges.map(({ node }) => (
+              <li key={node.fields.slug}>
+                <Preview slug={node.fields.slug} date={node.date} excerpt={node.fields.markdownBody.childMarkdownRemark.excerpt} title={node.title} />
+              </li>
+            ))
+          }
+        </ul>
+      </main>
     </Layout>
   )
 }
