@@ -1,0 +1,27 @@
+.bio {
+  display: flex;
+  align-items: center;
+
+  margin: 2rem auto;
+  padding: 0.5rem 0;
+  border: 2px solid #EEE;
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+.avatar {
+  border-radius: 100%;
+  margin-right: 0.5rem;
+  height: 100px;
+  width: 100px;
+}
+
+.description p {
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .bio {
+    max-width: 75%;
+  }
+}

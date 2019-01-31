@@ -16,6 +16,10 @@ Each folder within `labs` is a self-contained project (e.g. `lab01`, `lab02`, `f
 
 <!-- AUTO-GENERATED-CONTENT:START (ALL_LABS) -->
 - [Lab 01-getting-started](./labs/01-getting-started)
+- [Lab 02-querying-drupal](./labs/02-querying-drupal)
+- [Lab 03-using-gatsby-image](./labs/03-using-gatsby-image)
+- [Lab 04-implementing-seo](./labs/04-implementing-seo)
+- [Lab 05-deploying](./labs/05-deploying)
 - [Lab final](./labs/final)
 <!-- AUTO-GENERATED-CONTENT:END -->
 
