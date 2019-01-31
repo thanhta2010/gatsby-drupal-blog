@@ -1,3 +1,4 @@
+const path = require('path')
 require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`
 })
@@ -21,7 +22,26 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: []
+        plugins: [
+          `@weknow/gatsby-remark-drupal`,
+          `@weknow/gatsby-remark-twitter`,
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-responsive-iframe`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              withWebp: true,
+              maxWidth: 700
+            }
+          }
+        ]
+      }
+    },
+    `gatsby-plugin-twitter`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: path.resolve('src/utils/typography.js')
       }
     },
     `gatsby-plugin-sharp`,
@@ -48,8 +68,5 @@ module.exports = {
         }
       }
     }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
   ],
 }

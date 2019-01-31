@@ -1,21 +1,46 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
-import Image from '../components/image'
 import SEO from '../components/seo'
+import Preview from '../components/preview'
 
-function IndexPage() {
+function IndexPage({ data }) {
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
+      <SEO title="Home" keywords={[`blog`]} />
+      <ul>
+        {
+          data.posts.edges.map(({ node }) => (
+            <li key={node.fields.slug}>
+              <Preview slug={node.fields.slug} date={node.date} excerpt={node.fields.markdownBody.childMarkdownRemark.excerpt} title={node.title} />
+            </li>
+          ))
+        }
+      </ul>
     </Layout>
   )
 }
+
+export const indexQuery = graphql`
+  {
+    posts: allNodeArticle {
+      edges {
+        node {
+          date:created(formatString:"MMM DD, YYYY")
+          title
+          fields {
+            markdownBody {
+              childMarkdownRemark {
+                excerpt(pruneLength: 160)
+              }
+            }
+            slug
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
