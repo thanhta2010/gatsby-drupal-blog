@@ -17,7 +17,17 @@ exports.createPages = async function createPages({ actions, graphql }) {
 
   const result = await graphql(`
     {
-      blog: allNodeArticle {
+      articles: allNodeArticle {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+
+      pages: allNodePage {
         edges {
           node {
             fields {
@@ -35,15 +45,27 @@ exports.createPages = async function createPages({ actions, graphql }) {
       return res.data
     })
 
-  const blogPostTemplate = path.resolve('src/templates/blog-post.js')
+  const articleTemplate = path.resolve('src/templates/article.js')
+  const pageTemplate = path.resolve('src/templates/page.js')
 
-  result.blog.edges.forEach(({ node }) => {
+  result.articles.edges.forEach(({ node }) => {
     createPage({
-      component: blogPostTemplate,
+      component: articleTemplate,
       path: node.fields.slug,
       context: {
         slug: node.fields.slug
       }
     })
   })
+
+  result.pages.edges.forEach(({ node }) => {
+    createPage({
+      component: pageTemplate,
+      path: node.fields.slug,
+      context: {
+        slug: node.fields.slug
+      }
+    })
+  })
+
 }

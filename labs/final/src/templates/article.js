@@ -8,11 +8,11 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 export default function BlogPost({ data }) {
-  const { post } = data
+  const { article } = data
   return (
     <Layout>
-      <SEO title={post.title} description={post.fields.markdownBody.childMarkdownRemark.excerpt} />
-      <div dangerouslySetInnerHTML={{ __html: post.fields.markdownBody.childMarkdownRemark.html }} />
+      <SEO title={article.title} description={article.fields.markdownBody.childMarkdownRemark.excerpt} />
+      <div dangerouslySetInnerHTML={{ __html: article.fields.markdownBody.childMarkdownRemark.html }} />
       <Bio />
     </Layout>
   ) 
@@ -20,7 +20,7 @@ export default function BlogPost({ data }) {
 
 export const blogPostQuery = graphql`
   query GetBlogPostBySlug($slug: String!) {
-    post: nodeArticle(fields:{slug:{eq:$slug}}) {
+    article: nodeArticle(fields:{slug:{eq:$slug}}) {
       title
       fields {
         markdownBody {
