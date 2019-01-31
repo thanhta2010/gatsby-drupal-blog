@@ -16,7 +16,7 @@ export default function Bio() {
                   field_media_image {
                     localFile {
                       childImageSharp {
-                          fixed(width:100) {
+                          fixed(height:48) {
                             ...GatsbyImageSharpFixed
                           }
                         }
