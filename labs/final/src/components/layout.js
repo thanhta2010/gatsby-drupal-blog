@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
+import Bio from './bio'
 import Header from './header'
 import Footer from './footer'
 
@@ -27,6 +28,7 @@ const Layout = ({ children }) => (
             paddingTop: 0,
           }}
         >
+          <Bio />
           {children}
         </div>
         <Footer />
