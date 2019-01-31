@@ -16,7 +16,7 @@ function IndexPage({ data }) {
       <main className={styles.index}>
         <ul>
           {
-            data.posts.edges.map(({ node }) => (
+            data.articles.edges.map(({ node }) => (
               <li key={node.fields.slug}>
                 <Preview slug={node.fields.slug} date={node.date} excerpt={node.fields.markdownBody.childMarkdownRemark.excerpt} title={node.title} />
               </li>
@@ -30,7 +30,7 @@ function IndexPage({ data }) {
 
 export const indexQuery = graphql`
   {
-    posts: allNodeArticle {
+    articles: allNodeArticle {
       edges {
         node {
           date:created(formatString:"MMM DD, YYYY")

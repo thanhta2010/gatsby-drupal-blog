@@ -30,16 +30,6 @@ exports.createPages = async function createPages({ actions, graphql }) {
           }
         }
       }
-
-      pages: allNodePage {
-        edges {
-          node {
-            fields {
-              slug
-            }
-          }
-        }
-      }
     }
   `)
     .then(res => {
@@ -50,21 +40,10 @@ exports.createPages = async function createPages({ actions, graphql }) {
     })
 
   const articleTemplate = path.resolve('src/templates/article.js')
-  const pageTemplate = path.resolve('src/templates/page.js')
 
   result.articles.edges.forEach(({ node }) => {
     createPage({
       component: articleTemplate,
-      path: node.fields.slug,
-      context: {
-        slug: node.fields.slug
-      }
-    })
-  })
-
-  result.pages.edges.forEach(({ node }) => {
-    createPage({
-      component: pageTemplate,
       path: node.fields.slug,
       context: {
         slug: node.fields.slug

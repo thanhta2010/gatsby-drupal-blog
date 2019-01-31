@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-drupal-blog-lab-getting-started",
+  "name": "gatsby-drupal-blog-lab-querying-drupal",
   "private": true,
-  "description": "The getting-started lab of the gatsby-drupal-blog",
+  "description": "The querying-drupal lab of the gatsby-drupal-blog",
   "version": "0.1.0",
   "author": "Dustin Schau <dustin@gatsbyjs.com>",
   "dependencies": {
