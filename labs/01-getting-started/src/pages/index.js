@@ -1,15 +1,27 @@
-import React from 'react'
-
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-
-function IndexPage() {
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+export default function IndexPage({ data }) {
   return (
     <Layout>
-      <SEO title="Home" keywords={[`blog`]} />
-      <h1>Hello, and welcome to the gatsby-drupal-blog!</h1>
+      <SEO title="Your Great Blog" description="All my blog posts" />
+      <ul>
+        {data.articles.edges.map(({ node }) => (
+          <li key={node.title}>{node.title}</li>
+        ))}
+      </ul>
     </Layout>
-  )
+  );
 }
-
-export default IndexPage
+export const indexQuery = graphql`
+  query GetAllBlogPosts {
+    allNodeArticle {
+      edges {
+        node {
+          title
+        }
+      }
+    }
+  }
+`;

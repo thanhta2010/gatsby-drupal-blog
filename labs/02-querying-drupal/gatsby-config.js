@@ -60,7 +60,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://157.230.218.150/`,
+        baseUrl: process.env.DRUPAL_HOST,
         apiBase: `api`,
         basicAuth: {
           username: process.env.DRUPAL_USERNAME,
